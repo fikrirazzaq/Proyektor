@@ -46,7 +46,7 @@ public class LihatProyektor extends javax.swing.JPanel {
         ));
         jScrollPane1.setViewportView(jTable1);
 
-        jButton1.setText("Perbaiki");
+        jButton1.setText("ubah");
 
         jButton2.setText("Hapus");
 
