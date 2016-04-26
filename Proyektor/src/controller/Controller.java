@@ -3,11 +3,12 @@
  * To change this template file, choose Tools | Templates
  * and open the template in the editor.
  */
+package controller;
 
 /**
  *
  * @author Juvetic
  */
-public class Sasdfa {
+public class Controller {
     
 }
