@@ -17,7 +17,7 @@ import javax.swing.table.DefaultTableModel;
  *
  * @author Juvetic
  */
-public class LihatProyektor extends javax.swing.JPanel {
+public class LihatAnggota extends javax.swing.JPanel {
 
     //Membuat Connection, Statement &
     Connection con;
@@ -27,36 +27,33 @@ public class LihatProyektor extends javax.swing.JPanel {
     DBConnection dbCon = new DBConnection();
     DefaultTableModel tabelModel;
     
-    public LihatProyektor() {
+    public LihatAnggota() {
         initComponents();
         con = dbCon.openConnection();
-        
         try {
-            String sql = "SELECT * FROM t_proyektor";
+            String sql = "SELECT us_id, us_nama FROM t_user WHERE us_status = 'Anggota'";
                         
             stmt = con.createStatement();
             rs = stmt.executeQuery(sql);
             
-            String nmKolom [] = {"ID Proyektor", "Merk", "Harga Sewa", "Stok"};
+            String nmKolom [] = {"ID Anggota", "Nama"};
             tabelModel = new javax.swing.table.DefaultTableModel(null, nmKolom);
             
             while(rs.next()){
                 String id = rs.getString(1);
-                String merk = rs.getString(2);
-                String harga = rs.getString(3);
-                String stok = rs.getString(4);
+                String nama = rs.getString(2);
                 
-                tabelModel.addRow(new String []{id, merk, harga, stok});
+                tabelModel.addRow(new String []{id, nama});
             }
-            tblProyektor.setModel(tabelModel);
-            tblProyektor.repaint();
+            tblAnggota.setModel(tabelModel);
+            tblAnggota.repaint();
         } catch (SQLException ex) {
             System.out.println("Data gagal ditampilkan!" + ex);
         }
     }
 
-    public JTable getTblProyektor() {
-        return tblProyektor;
+    public JTable getTblAnggota() {
+        return tblAnggota;
     }
     
     
@@ -75,7 +72,7 @@ public class LihatProyektor extends javax.swing.JPanel {
         txCari = new javax.swing.JTextField();
         btnCari = new javax.swing.JButton();
         jScrollPane1 = new javax.swing.JScrollPane();
-        tblProyektor = new javax.swing.JTable();
+        tblAnggota = new javax.swing.JTable();
         jLabel1 = new javax.swing.JLabel();
 
         setBackground(new java.awt.Color(255, 255, 255));
@@ -91,7 +88,7 @@ public class LihatProyektor extends javax.swing.JPanel {
             }
         });
 
-        tblProyektor.setModel(new javax.swing.table.DefaultTableModel(
+        tblAnggota.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
                 {null, null, null, null},
                 {null, null, null, null},
@@ -102,7 +99,7 @@ public class LihatProyektor extends javax.swing.JPanel {
                 "Title 1", "Title 2", "Title 3", "Title 4"
             }
         ));
-        jScrollPane1.setViewportView(tblProyektor);
+        jScrollPane1.setViewportView(tblAnggota);
 
         jLabel1.setText("Pencarian Berdasarkan ID Proyektor");
 
@@ -165,7 +162,7 @@ public class LihatProyektor extends javax.swing.JPanel {
                 
                 tabelModel.addRow(new String []{id, merk, harga, stok});
             }
-            tblProyektor.setModel(tabelModel);
+            tblAnggota.setModel(tabelModel);
         } catch (SQLException ex) {
             System.out.println("Data gagal ditampilkan!" + ex);
         }
@@ -178,7 +175,7 @@ public class LihatProyektor extends javax.swing.JPanel {
     private javax.swing.JButton btnUbah;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTable tblProyektor;
+    private javax.swing.JTable tblAnggota;
     private javax.swing.JTextField txCari;
     // End of variables declaration//GEN-END:variables
 }

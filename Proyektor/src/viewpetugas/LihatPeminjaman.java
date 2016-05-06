@@ -10,6 +10,7 @@ import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 /**
@@ -60,6 +61,10 @@ public class LihatPeminjaman extends javax.swing.JPanel {
         } catch (SQLException ex) {
             System.out.println("Data gagal ditampilkan!" + ex);
         }
+    }
+    
+    public JTable getTblPeminjaman() {
+        return tblPeminjaman;
     }
 
     /**

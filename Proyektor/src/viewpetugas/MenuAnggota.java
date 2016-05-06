@@ -5,6 +5,9 @@
  */
 package viewpetugas;
 
+import java.awt.event.ActionListener;
+import javax.swing.JButton;
+
 /**
  *
  * @author lazuardi
@@ -18,6 +21,19 @@ public class MenuAnggota extends javax.swing.JPanel {
         initComponents();
     }
 
+    public JButton getBtnLihatAnggota() {
+        return btnLihatAnggota;
+    }
+
+    public JButton getBtnTambahAnggota() {
+        return btnTambahAnggota;
+    }
+    
+    public void addListener(ActionListener e) {
+        btnLihatAnggota.addActionListener(e);
+        btnTambahAnggota.addActionListener(e);
+    }
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -27,16 +43,18 @@ public class MenuAnggota extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
+        btnTambahAnggota = new javax.swing.JButton();
+        btnLihatAnggota = new javax.swing.JButton();
 
-        jButton1.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
-        jButton1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/1461702215_Add.png"))); // NOI18N
-        jButton1.setText("Tambah Anggota");
+        setBackground(new java.awt.Color(255, 255, 255));
 
-        jButton2.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/1461702219_Information.png"))); // NOI18N
-        jButton2.setText("Lihat Data Anggota");
+        btnTambahAnggota.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        btnTambahAnggota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/1461702215_Add.png"))); // NOI18N
+        btnTambahAnggota.setText("Tambah Anggota");
+
+        btnLihatAnggota.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        btnLihatAnggota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/1461702219_Information.png"))); // NOI18N
+        btnLihatAnggota.setText("Lihat Data Anggota");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -44,9 +62,9 @@ public class MenuAnggota extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(layout.createSequentialGroup()
                 .addGap(224, 224, 224)
-                .addComponent(jButton1)
+                .addComponent(btnTambahAnggota)
                 .addGap(45, 45, 45)
-                .addComponent(jButton2)
+                .addComponent(btnLihatAnggota)
                 .addContainerGap(113, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -54,15 +72,15 @@ public class MenuAnggota extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(245, 245, 245)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jButton1)
-                    .addComponent(jButton2))
+                    .addComponent(btnTambahAnggota)
+                    .addComponent(btnLihatAnggota))
                 .addContainerGap(326, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
+    private javax.swing.JButton btnLihatAnggota;
+    private javax.swing.JButton btnTambahAnggota;
     // End of variables declaration//GEN-END:variables
 }

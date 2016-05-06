@@ -60,13 +60,21 @@ public class MenuUtama extends javax.swing.JFrame {
     }
     
     public void addListener(ActionListener e) {
-        btnAkunSaya.addActionListener(e);
+        btnPelaporan.addActionListener(e);
         btnProyektor.addActionListener(e);
+        btnAnggota.addActionListener(e);
         btnPelaporan.addActionListener(e);
         btnAkunSaya.addActionListener(e);
         btnPeminjaman.addActionListener(e);
         btnPengembalian.addActionListener(e);
+        btnAnggota.addActionListener(e);
     }
+
+    public JButton getBtnAnggota() {
+        return btnAnggota;
+    }
+    
+    
 
     public void viewErrorMsg(String errorMsg) {
         JOptionPane.showMessageDialog(this, errorMsg);
@@ -86,10 +94,11 @@ public class MenuUtama extends javax.swing.JFrame {
         btnPeminjaman = new javax.swing.JButton();
         btnPengembalian = new javax.swing.JButton();
         btnProyektor = new javax.swing.JButton();
+        btnAnggota = new javax.swing.JButton();
         btnPelaporan = new javax.swing.JButton();
         btnAkunSaya = new javax.swing.JButton();
-        mainPanel = new javax.swing.JPanel();
         jLabel2 = new javax.swing.JLabel();
+        mainPanel = new javax.swing.JPanel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setTitle("Sistem Informasi Peminjaman Proyektor");
@@ -111,18 +120,59 @@ public class MenuUtama extends javax.swing.JFrame {
         btnProyektor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/1461702245_projector.png"))); // NOI18N
         btnProyektor.setText("Proyektor");
 
+        btnAnggota.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
+        btnAnggota.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/1461703657_user_accounts.png"))); // NOI18N
+        btnAnggota.setText("Anggota");
+
         btnPelaporan.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
         btnPelaporan.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/1461702227_Text Document.png"))); // NOI18N
         btnPelaporan.setText("Pelaporan");
+        btnPelaporan.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnPelaporanActionPerformed(evt);
+            }
+        });
 
         btnAkunSaya.setFont(new java.awt.Font("Roboto Medium", 0, 14)); // NOI18N
-        btnAkunSaya.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/1461702239_User.png"))); // NOI18N
+        btnAkunSaya.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/1461702206_Delete.png"))); // NOI18N
         btnAkunSaya.setText("Keluar");
         btnAkunSaya.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAkunSayaActionPerformed(evt);
             }
         });
+
+        javax.swing.GroupLayout sidePanelLayout = new javax.swing.GroupLayout(sidePanel);
+        sidePanel.setLayout(sidePanelLayout);
+        sidePanelLayout.setHorizontalGroup(
+            sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(btnPeminjaman, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnPengembalian, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnProyektor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnAnggota, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnPelaporan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+            .addComponent(btnAkunSaya, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+        sidePanelLayout.setVerticalGroup(
+            sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(sidePanelLayout.createSequentialGroup()
+                .addComponent(btnPeminjaman, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(btnPengembalian, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(btnProyektor, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(btnAnggota, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(1, 1, 1)
+                .addComponent(btnPelaporan, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(btnAkunSaya, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(0, 12, Short.MAX_VALUE))
+        );
+
+        jLabel2.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
+        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/1461702245_projector.png"))); // NOI18N
+        jLabel2.setText("SISTEM INFORMASI PEMINJAMAN PROYEKTOR");
 
         mainPanel.setBackground(new java.awt.Color(255, 255, 255));
         mainPanel.setForeground(new java.awt.Color(255, 255, 255));
@@ -139,43 +189,6 @@ public class MenuUtama extends javax.swing.JFrame {
             .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout sidePanelLayout = new javax.swing.GroupLayout(sidePanel);
-        sidePanel.setLayout(sidePanelLayout);
-        sidePanelLayout.setHorizontalGroup(
-            sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(sidePanelLayout.createSequentialGroup()
-                .addGroup(sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(btnPeminjaman, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnPengembalian, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnProyektor, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnPelaporan, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(btnAkunSaya, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(23, 23, 23))
-        );
-        sidePanelLayout.setVerticalGroup(
-            sidePanelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(sidePanelLayout.createSequentialGroup()
-                .addComponent(btnPeminjaman, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(btnPengembalian, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(btnProyektor, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(btnPelaporan, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(1, 1, 1)
-                .addComponent(btnAkunSaya, javax.swing.GroupLayout.PREFERRED_SIZE, 97, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(95, 95, 95))
-            .addGroup(sidePanelLayout.createSequentialGroup()
-                .addComponent(mainPanel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addContainerGap())
-        );
-
-        jLabel2.setFont(new java.awt.Font("Roboto Black", 0, 24)); // NOI18N
-        jLabel2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/1461702245_projector.png"))); // NOI18N
-        jLabel2.setText("SISTEM INFORMASI PEMINJAMAN PROYEKTOR");
-
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
@@ -183,8 +196,11 @@ public class MenuUtama extends javax.swing.JFrame {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(sidePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel2))
+                    .addComponent(jLabel2)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(sidePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(mainPanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap())
         );
         layout.setVerticalGroup(
@@ -192,12 +208,19 @@ public class MenuUtama extends javax.swing.JFrame {
             .addGroup(layout.createSequentialGroup()
                 .addComponent(jLabel2)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                .addComponent(sidePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(layout.createSequentialGroup()
+                        .addComponent(sidePanel, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap())
+                    .addComponent(mainPanel, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
         );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btnPelaporanActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnPelaporanActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_btnPelaporanActionPerformed
 
     private void btnAkunSayaActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAkunSayaActionPerformed
         // TODO add your handling code here:
@@ -206,6 +229,7 @@ public class MenuUtama extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnAkunSaya;
+    private javax.swing.JButton btnAnggota;
     private javax.swing.JButton btnPelaporan;
     private javax.swing.JButton btnPeminjaman;
     private javax.swing.JButton btnPengembalian;

@@ -24,17 +24,17 @@ public class MenuProyektor extends javax.swing.JPanel {
     }
     
     public void addListener(ActionListener e) {
-        btnLihatBuku.addActionListener(e);
-        btnTambahBuku.addActionListener(e);
+        btnLihatProyektor.addActionListener(e);
+        btnTambahProyektor.addActionListener(e);
     }
 
-    public JButton getBtnLihatBuku() {
-        return btnLihatBuku;
+    public JButton getBtnLihatProyektor() {
+        return btnLihatProyektor;
     }
 
 
-    public JButton getBtnTambahBuku() {
-        return btnTambahBuku;
+    public JButton getBtnTambahProyektor() {
+        return btnTambahProyektor;
     }
 
     
@@ -49,19 +49,19 @@ public class MenuProyektor extends javax.swing.JPanel {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        btnTambahBuku = new javax.swing.JButton();
-        btnLihatBuku = new javax.swing.JButton();
+        btnTambahProyektor = new javax.swing.JButton();
+        btnLihatProyektor = new javax.swing.JButton();
 
         setBackground(new java.awt.Color(255, 255, 255));
         setPreferredSize(new java.awt.Dimension(764, 644));
 
-        btnTambahBuku.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
-        btnTambahBuku.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/1461702215_Add.png"))); // NOI18N
-        btnTambahBuku.setText("Tambah Proyektor");
+        btnTambahProyektor.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        btnTambahProyektor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/1461702215_Add.png"))); // NOI18N
+        btnTambahProyektor.setText("Tambah Proyektor");
 
-        btnLihatBuku.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
-        btnLihatBuku.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/1461702219_Information.png"))); // NOI18N
-        btnLihatBuku.setText("Lihat Data Proyektor");
+        btnLihatProyektor.setFont(new java.awt.Font("Roboto", 0, 11)); // NOI18N
+        btnLihatProyektor.setIcon(new javax.swing.ImageIcon(getClass().getResource("/gambar/1461702219_Information.png"))); // NOI18N
+        btnLihatProyektor.setText("Lihat Data Proyektor");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -69,9 +69,9 @@ public class MenuProyektor extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(220, 220, 220)
-                .addComponent(btnTambahBuku)
+                .addComponent(btnTambahProyektor)
                 .addGap(31, 31, 31)
-                .addComponent(btnLihatBuku)
+                .addComponent(btnLihatProyektor)
                 .addContainerGap(115, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
@@ -79,15 +79,15 @@ public class MenuProyektor extends javax.swing.JPanel {
             .addGroup(layout.createSequentialGroup()
                 .addGap(220, 220, 220)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnTambahBuku)
-                    .addComponent(btnLihatBuku))
+                    .addComponent(btnTambahProyektor)
+                    .addComponent(btnLihatProyektor))
                 .addContainerGap(351, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnLihatBuku;
-    private javax.swing.JButton btnTambahBuku;
+    private javax.swing.JButton btnLihatProyektor;
+    private javax.swing.JButton btnTambahProyektor;
     // End of variables declaration//GEN-END:variables
 }

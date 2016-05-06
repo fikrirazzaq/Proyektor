@@ -52,6 +52,10 @@ public class Controller implements ActionListener {
     private TambahPeminjaman tj;
     private LihatPeminjaman lj;
     
+    private MenuAnggota ma;
+    private TambahAnggota ta;
+    private LihatAnggota la;
+    
     private BrowseAnggota ba;
     private BrowseProyektor bp;
     
@@ -86,6 +90,9 @@ public class Controller implements ActionListener {
         this.lj = new LihatPeminjaman();
         this.bl = new BuatLaporan();
         this.mu = new MenuUser();
+        this.ma = new MenuAnggota();
+        this.ta = new TambahAnggota();
+        this.la = new LihatAnggota();
         
         //Browse
         this.ba = new BrowseAnggota();
@@ -105,7 +112,9 @@ public class Controller implements ActionListener {
         mu.addListener(this);
         tp.addListener(this);
         tb.addListener(this);
-        tj.addListener(this);        
+        tj.addListener(this);
+        ma.addListener(this);
+        ta.addListener(this);
         
         //Pemberian Kode Tiap Menu
         mainPanel = viewUtama.getMainPanel();
@@ -119,6 +128,9 @@ public class Controller implements ActionListener {
         mainPanel.add(lj, "7"); //7
         mainPanel.add(bl, "8"); //8
         mainPanel.add(mu, "9"); //9
+        mainPanel.add(ma, "10"); //10
+        mainPanel.add(ta, "11"); //11
+        mainPanel.add(la, "12"); //12
         
         mainPanelAnggota = viewUtamaAnggota.getMainPanel();
         mainPanelAnggota.add(lpa, "11");
@@ -159,6 +171,28 @@ public class Controller implements ActionListener {
             viewUtama.getCardLayout().show(mainPanel, currentView);
         }
         
+        //Button Menu Anggota
+        else if (source.equals(viewUtama.getBtnAnggota()))
+        {
+            currentView = "10";
+            viewUtama.getCardLayout().show(mainPanel, currentView);
+        }
+        
+        //Button Tambah Anggota
+        else if (source.equals(ma.getBtnTambahAnggota()))
+        {
+            currentView = "11";
+            viewUtama.getCardLayout().show(mainPanel, currentView);
+            la.getTblAnggota().repaint();
+        }
+        
+        //Button Lihat Anggota
+        else if (source.equals(ma.getBtnLihatAnggota()))
+        {
+            currentView = "12";
+            viewUtama.getCardLayout().show(mainPanel, currentView);
+        }
+        
         //Button Menu Akun Saya
         else if (source.equals(viewUtama.getBtnAkunSaya()))
         {
@@ -169,14 +203,15 @@ public class Controller implements ActionListener {
         }
         
         //Button Tambah Proyektor
-        else if (source.equals(mp.getBtnTambahBuku()))
+        else if (source.equals(mp.getBtnTambahProyektor()))
         {
             currentView = "2";
             viewUtama.getCardLayout().show(mainPanel, currentView);
+            lp.getTblProyektor().repaint();
         }
         
         //Button Lihat Proyektor
-        else if (source.equals(mp.getBtnLihatBuku()))
+        else if (source.equals(mp.getBtnLihatProyektor()))
         {
             currentView = "1";
             viewUtama.getCardLayout().show(mainPanel, currentView);
@@ -187,6 +222,7 @@ public class Controller implements ActionListener {
         {
             currentView = "6";
             viewUtama.getCardLayout().show(mainPanel, currentView);
+            lj.getTblPeminjaman().repaint();
         }
         
         //Button Lihat Peminjaman
@@ -201,6 +237,7 @@ public class Controller implements ActionListener {
         {
             currentView = "5";
             viewUtama.getCardLayout().show(mainPanel, currentView);
+            lj.getTblPeminjaman().repaint();
         }
         
         //Button Lihat Pengembalian
@@ -361,7 +398,7 @@ public class Controller implements ActionListener {
             }
             else    
             {
-                JOptionPane.showMessageDialog(null, "Isi ID Anggota!");
+                JOptionPane.showMessageDialog(null, "Isi ID Peminjaman!");
             }
         }
         
@@ -465,52 +502,17 @@ public class Controller implements ActionListener {
             viewUtamaAnggota.setVisible(true);
         }
         
-        /**
-        //Regis Anggota
-        else if (source.equals(viewRegAnggota.getBtnBuatAkun()))
+        //Cetak Laporan
+        else if (source.equals(bl.getBtnLaporan()))
         {
-            if(!viewRegAnggota.getTxtNama().getText().isEmpty())
-            {
-                if(!viewRegAnggota.getTxtUsername().getText().isEmpty())
-                {
-                    if(!viewRegAnggota.getTxtPassword().getText().isEmpty())
-                    {
-                        try {
-                            stmt = con.createStatement();
-                            String sql = "INSERT INTO "
-                                    + "t_user (us_nama, us_username, us_password, us_status) "
-                                    + "VALUES ('" + viewRegAnggota.getTxtNama().getText() + "', "
-                                    + "'" + viewRegAnggota.getTxtUsername().getText() + "', "
-                                    + "'" + viewRegAnggota.getTxtPassword().getText() + "', "
-                                    + "'Anggota')";
-                            stmt.executeUpdate(sql);
-                            
-                            JOptionPane.showMessageDialog(null, "Akun berhasil dibuat!");
-                            
-                            viewRegAnggota.dispose();
-                            viewLoginAnggota.setVisible(true);
-                            
-                            viewLoginAnggota.getTxtUsername().setText("");
-                            viewLoginAnggota.getTxtPassword().setText("");
-                            } catch (SQLException ex) {
-                                System.out.println("Error " + ex);
-                        }
-                    }
-                    else
-                    {
-                        JOptionPane.showMessageDialog(null, "Isi Kata Sandi!");
-                    }
-                }
-                else
-                {
-                    JOptionPane.showMessageDialog(null, "Isi Kata Pengguna!");
-                }
-            }
-            else    
-            {
-                JOptionPane.showMessageDialog(null, "Isi Nama!");
-            }
-        }*/
+            JOptionPane.showMessageDialog(null, "Coming soon!");
+        }
+        
+        //Browse Pinjam
+        else if (source.equals(bl.getBtnLaporan()))
+        {
+            bp.setVisible(true);
+        }
         
         //Regis Petugas
         else if (source.equals(viewRegPetugas.getBtnBuatAkun()))
@@ -558,6 +560,32 @@ public class Controller implements ActionListener {
             }
         }
         
+        //Regis Anggota
+        else if (source.equals(ta.getBtnSimpan()))
+        {
+            if(!ta.getTxNamaAnggota().getText().isEmpty())
+            {
+                try {
+                    stmt = con.createStatement();
+                    String sql = "INSERT INTO "
+                            + "t_user (us_nama, us_status) "
+                            + "VALUES ('" + ta.getTxNamaAnggota().getText() + "', "
+                            + "'Anggota')";
+                    stmt.executeUpdate(sql);
+
+                    JOptionPane.showMessageDialog(null, "Akun berhasil dibuat!");
+
+                    ta.getTxNamaAnggota().setText("");
+                    } catch (SQLException ex) {
+                        System.out.println("Error " + ex);
+                }
+            }
+            else    
+            {
+                JOptionPane.showMessageDialog(null, "Isi Nama!");
+            }
+        }
+        
         //Akun Saya -> Logout
         else if(source.equals(mu.getBtnLogout()))
         {
@@ -583,9 +611,5 @@ public class Controller implements ActionListener {
         {
             bp.setVisible(true);
         }
-    }
-
-    public static String getUsername() {
-        return username;
-    }    
+    }   
 }
