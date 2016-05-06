@@ -13,27 +13,27 @@ public class Aplikasi {
     private Petugas[] daftarPetugas;
     private Anggota[] daftarAnggota;
     private Peminjaman[] daftarPeminjaman;
-    private Barang[] daftarBarang;
+    private Proyektor[] daftarBarang;
     
-    public addPetugas(Petugas p){
-    
-    }
-    public addAnggota(Anggota a){
+    public void addPetugas(Petugas p){
     
     }
-    public getAnggota(NIM){
+    public void addAnggota(Anggota a){
+    
+    }
+    public void getAnggota(){
         
     }
-    public deleteAnggota(NIM){
+    public void deleteAnggota(){
+        
+    }
+    public void menuSatu(){
+        
+    }
+    public void menuDua(){
     
     }
-    public menuSatu(){
-    
-    }
-    public menuDua(){
-    
-    }
-    public mainMenu(){
+    public void mainMenu(){
     
     }
 }

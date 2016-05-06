@@ -33,8 +33,8 @@ public class Peminjaman {
     }
     
     public Proyektor getProyektorByIndex(int index){
-        Object[]array = listProyektor.toArray();
-        return (Proyektor)array[index];
+        Object[] array = listProyektor.toArray();
+        return (Proyektor) array[index];
     }
     
     public Proyektor getProyektorByKode(int kode){

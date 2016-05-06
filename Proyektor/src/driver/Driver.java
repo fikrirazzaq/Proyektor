@@ -5,10 +5,13 @@
  */
 package driver;
 
+import controller.Controller;
 /**
  *
  * @author Juvetic
  */
 public class Driver {
-    
+    public static void main(String[] args) {
+        new Controller();
+    }
 }
